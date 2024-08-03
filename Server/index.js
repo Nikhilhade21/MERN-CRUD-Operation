@@ -9,7 +9,7 @@ app.use(express.json())
 const PORT = 3001
 
 //db connection
-mongoose.connect("mongodb://127:0:0.1:27017/crud")
+mongoose.connect("mongodb://127.0.0.1:27017/crud")
 
 app.post('/createUser', (req, res) => {
     UserModel.create(req, body)
