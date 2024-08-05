@@ -11,9 +11,10 @@ const User = () => {
     .catch(err => console.log(err))
   },[])
 
-  const handleDelete = (e) => {
-    axios.delete('/deleteUser/'+id)
-    .then(res => console.log(res))
+  const handleDelete = (id) => {
+    axios.delete('http://localhost:3001/deleteUser/'+id)
+    .then(res => {console.log(res)
+      window.location.reload()})
     .catch(err => console.log(err))
   }
 
@@ -39,7 +40,8 @@ const User = () => {
                   <td>{user.age}</td>
                   <td>
                     <Link to={`/update/${user._id}`} className='btn btn-success'>Update</Link> 
-                    <button className='btn btn-danger' onClick={(e) => handleDelete(user._id)}>Delete</button>
+                    <button className='btn btn-danger' 
+                     onClick={(e) => handleDelete(user._id)}>Delete</button>
                   </td>
                 </tr>
               }) 
